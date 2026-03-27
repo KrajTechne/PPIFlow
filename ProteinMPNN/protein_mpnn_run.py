@@ -27,8 +27,7 @@ def main(args):
     chain_id_dict = assign_fixed_chains(parsed_chain_dict_list, args.chain_list)
     if args.position_list:
         fixed_positions_dict = make_fixed_positions_dict(parsed_chain_dict_list, args.chain_list, args.position_list)
-
-    print("fixed_positions_dict: {}".format(fixed_positions_dict))
+        print("fixed_positions_dict: {}".format(fixed_positions_dict))
     if args.seed:
         seed=args.seed
     else:
@@ -89,7 +88,7 @@ def main(args):
             print(40*'-')
             print('chain_id_jsonl is NOT loaded')
     
-    if fixed_positions_dict:
+    if args.position_list:
         pass
     elif os.path.isfile(args.fixed_positions_jsonl):
         with open(args.fixed_positions_jsonl, 'r') as json_file:
