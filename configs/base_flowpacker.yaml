@@ -1,0 +1,21 @@
+ckpt: /Volumes/sandbox/model_weights/protein_hunter/bc40.pth
+conf_ckpt: null
+data:
+  cluster_path: null
+  data: bc40
+  edge_type: knn
+  max_length: 512
+  max_neighbors: 30
+  max_radius: 16.0
+  min_length: 40
+  test_path: /Volumes/sandbox/denovotrial/ppiflow/Mar25_FMWK8coh_RBX1_7_bbones/filtered_links
+  train_path: null
+mode: vf
+sample:
+  batch_size: 1
+  coeff: 5.0
+  eps: 0.002
+  n_samples: 1
+  num_steps: 10
+  save_trajectory: false
+  use_ema: true
