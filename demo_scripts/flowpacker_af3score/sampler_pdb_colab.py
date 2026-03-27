@@ -2,7 +2,7 @@ import os,sys
 import time
 from tqdm import tqdm
 import torch
-sys.path.append('flowpacker-main/')
+sys.path.append('/Workspace/Users/karthik.raj@bio-techne.com/flowpacker')
 from utils.loader import load_seed, load_device, load_ema, load_checkpoint, load_config
 from utils.logger import Logger, set_log
 from utils.train_utils import count_parameters
@@ -97,10 +97,10 @@ def adding_aatype(csv, before_pdb_dir, pdb_output_dir):
             f.writelines(new_lines)
 
         count += 1
-        print(f"✅ 成功处理: {pdb_name}")
+        print(f"✅ Successfully processed: {pdb_name}")
 
 
-    print(f"✅ 总共生成了 {count} 个文件")
+    print(f"✅ A total of {count} files were generated")
 
 
 
@@ -118,7 +118,8 @@ class Sampler(object):
         self.config.exp_name = ts
         self.ckpt = f'{ts}'
 
-        print(f'{self.ckpt}')
+        print(f'Checkpoint: {self.ckpt}')
+        print(f"Config Checkpoint Path: {self.config.ckpt}")
         ckpt_dict = torch.load(self.config.ckpt)
         train_cfg = ckpt_dict['config']
         self.log_folder_name, self.log_dir, self.ckpt_dir = set_log(train_cfg)
@@ -331,7 +332,7 @@ if __name__ == '__main__':
     for src_file in all_after_pdbs:
         dst_file = os.path.join(after_pdbs, os.path.basename(src_file))
         shutil.copy2(src_file, dst_file)
-    print(f"✅ 所有批次文件已复制到 {after_pdbs}")
+    print(f"✅ All batch files have been copied to {after_pdbs}")
 
 
     
